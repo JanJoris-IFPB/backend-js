@@ -1,0 +1,14 @@
+{
+  "name": "backend-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "JanJoris-IFPB <jan.joris@academico.ifpb.edu.br>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src\\index.js"
+  },
+  "devDependencies": {
+    "tsc": "^2.0.4",
+    "typescript": "^4.8.4"
+  }
+}
