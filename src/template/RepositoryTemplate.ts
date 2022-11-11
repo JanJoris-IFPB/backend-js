@@ -22,11 +22,11 @@ export default abstract class RepositoryTemplate {
         }
     }
 
-    public async read() {
+    public async read(): Promise<any[]> {
         return this.mongoModel.find();
     }
 
-    public async update(entity: any): Promise<string> {
+    public async update(entity: any): Promise<any> {
         try {
             if (!entity)
                 return undefined;
@@ -50,7 +50,7 @@ export default abstract class RepositoryTemplate {
         }
     }
 
-    public async get(uuid: string): Promise<any> {
+    public async findByUuid(uuid: string): Promise<any> {
         return this.mongoModel.findById(uuid);
     }
 
