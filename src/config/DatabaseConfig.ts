@@ -3,7 +3,7 @@ import DotEnvComponent from "../components/DotEnvComponents";
 
 export default class DatabaseConfig {
 
-    constructor() {
+    public static async connect() {
         mongoose.connect(DotEnvComponent.DATABASE_URL)
             .then(() => {
                 console.log("DB connection established");

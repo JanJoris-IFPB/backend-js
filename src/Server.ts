@@ -5,7 +5,7 @@ class Server {
      * Start the server
      */
     public start(): void {
-        new DatabaseConfig();
+        DatabaseConfig.connect();
     }
 }
 
