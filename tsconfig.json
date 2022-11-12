@@ -15,7 +15,8 @@
       "../node_modules/@types"
     ],
     "types": [
-      "node"
+      "node",
+      "jest"
     ],
     "strictNullChecks": false,
     "skipLibCheck": true, /* Skip type checking of declaration files. */
