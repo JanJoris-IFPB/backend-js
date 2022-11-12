@@ -3,7 +3,7 @@ import { v4 } from "uuid";
 
 const schema = new mongoose.Schema({
     _id: { type: String, required: true, default: v4() },
-    channelUuid: { type: String, required: true, unique: true, ref: "Channel" },
+    channelUuid: { type: String, required: true, ref: "Channel" },
 
     name: { type: String, required: true },
     description: { type: String, required: true },

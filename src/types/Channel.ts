@@ -6,5 +6,5 @@ export default interface Channel {
     about: string,
     createdAt?: Date,
 
-    subscribers: number
+    subscribers?: number
 }
