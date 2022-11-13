@@ -1,8 +1,7 @@
 import mongoose from "mongoose";
-import { v4 } from "uuid";
 
 const schema = new mongoose.Schema({
-    _id: { type: String, required: true, default: v4() },
+    _id: { type: String, required: true },
     channelUuid: { type: String, required: true, ref: "Channel" },
 
     name: { type: String, required: true },

@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import LoggerComponent from "../components/LoggerComponent";
+import { v4 } from "uuid";
 
 export default abstract class RepositoryTemplate {
     protected mongoModel: mongoose.Model<any>;
@@ -13,7 +14,8 @@ export default abstract class RepositoryTemplate {
         try {
             if (!entity)
                 return undefined;
-
+             
+            entity._id = v4();
             const newEntity = new this.mongoModel(entity);
             await newEntity.save();
 
