@@ -58,12 +58,12 @@ describe("Tests the VideoService methods", () => {
     })
 
     afterAll(async () => {
-        // await channelService.delete(channel._id);
-        // await userService.delete(user._id);
+        await channelService.delete(channel._id);
+        await userService.delete(user._id);
         await DatabaseConfig.disconnect();
     })
 
-    test.only("Create videos for a channel", async () => {
+    test("Create videos for a channel", async () => {
         const result = await videoService.create(video);
         video._id = result._id;
         
@@ -141,7 +141,7 @@ describe("Tests the VideoService methods", () => {
         expect(result.description).toBe("New desc");
     });
 
-    test.skip("Delete videos", async () => {
+    test("Delete videos", async () => {
         const result = await videoService.delete(video._id);
 
         expect(result).not.toBe(undefined);
