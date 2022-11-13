@@ -3,6 +3,7 @@ import DatabaseConfig from "./config/DatabaseConfig";
 import DotenvComponent from "./components/DotEnvComponents";
 import AppConfig from "./config/AppConfig";
 import os from "os";
+import LoggerComponent from './components/LoggerComponent';
 
 class Server {
 
@@ -18,17 +19,19 @@ class Server {
     }
 
     private static logSystemInfo(): void {
+        const logger = new LoggerComponent(Server.name);
+
         const arch = os.arch();
         const plataform = os.platform();
         const type = os.type();
         const mem = os.totalmem();
         const cpus = os.cpus();
 
-        console.log(`SERVER RUNNING ON PORT: ${DotenvComponent.API_PORT}`);
-        console.log(`OS: ${type} ${plataform} ${arch}`);
-        console.log(`RAM: ${Math.floor(mem * (10 ** -9))} GB`);
-        console.log(`CPU: ${cpus[0].model}`);
-        console.log(`CORES: ${cpus.length}`);
+        logger.info(`SERVER RUNNING ON PORT: ${DotenvComponent.API_PORT}`);
+        logger.info(`OS: ${type} ${plataform} ${arch}`);
+        logger.info(`RAM: ${Math.floor(mem * (10 ** -9))} GB`);
+        logger.info(`CPU: ${cpus[0].model}`);
+        logger.info(`CORES: ${cpus.length}`);
     }
 }
 

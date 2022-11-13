@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
+import LoggerComponent from "../components/LoggerComponent";
 
 export default abstract class RepositoryTemplate {
     protected mongoModel: mongoose.Model<any>;
+    protected logger = new LoggerComponent(RepositoryTemplate.name);
 
     public constructor(mongoModel: mongoose.Model<any>) {
         this.mongoModel = mongoModel;
@@ -17,7 +19,7 @@ export default abstract class RepositoryTemplate {
 
             return newEntity._id;
         } catch (error) {
-            console.error(error);
+            this.logger.error("ERROR while saving entity", error);
             return undefined;
         }
     }
@@ -36,7 +38,7 @@ export default abstract class RepositoryTemplate {
 
             return result;
         } catch (error) {
-            console.error(error);
+            this.logger.error("ERROR while saving entity", error);
             return undefined;
         }
     }
@@ -45,7 +47,7 @@ export default abstract class RepositoryTemplate {
         try {
             return this.mongoModel.deleteOne({ _id: uuid });
         } catch (error) {
-            console.error(error);
+            this.logger.error("ERROR while deleting entity", error);
             return undefined;
         }
     }

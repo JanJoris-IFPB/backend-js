@@ -1,25 +1,30 @@
 import mongoose from "mongoose";
 import DotEnvComponent from "../components/DotEnvComponents";
+import LoggerComponent from "../components/LoggerComponent";
 
 export default class DatabaseConfig {
 
     public static async connect() {
+        const logger = new LoggerComponent(DatabaseConfig.name);
+
         await mongoose.connect(DotEnvComponent.DATABASE_URL)
             .then(() => {
-                console.log("DB connection established");
+                logger.info("DB connection established");
             })
             .catch((error: Error) => {
-                console.log("DB connection failed; Reason: " + error.message);
+                logger.error("DB connection failed", error);
             });
     }
 
     public static async disconnect() {
+        const logger = new LoggerComponent(DatabaseConfig.name);
+
         await mongoose.disconnect()
             .then(() => {
-                console.log("DB disconnected");
+                logger.info("DB disconnected");
             })
             .catch((error: Error) => {
-                console.log("DB disconnection failed; Reason: " + error.message);
+                logger.error("DB disconnection failed", error);
             });
     }
 
