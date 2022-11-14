@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
 import UserRoutes from '../routes/UserRoutes';
 import ChannelRoutes from '../routes/ChannelRoutes';
@@ -11,6 +11,7 @@ export default class AppConfig {
         this.app = express();
         this.configApp();
         this.configRoutes();
+        this.configDocumentation();
     }
 
     private configApp(): void {
@@ -25,6 +26,13 @@ export default class AppConfig {
         this.app.use("/user", userRoutes.getRoutes());
         this.app.use("/channel", channelRoutes.getRoutes());
         this.app.use("/watch", videoRoutes.getRoutes());
+    }
+
+    public configDocumentation(): void {
+        this.app.use(express.static("doc"));
+        this.app.use("/", (request: Request, response:Response)=>{
+            response.render("index.html");
+        });
     }
 
     public getApp(): express.Express {
