@@ -1,5 +1,6 @@
 import User from "../../types/User";
 import UserRepository from "./UserRepository";
+import JWtComponent from "../../components/JWTComponent";
 import CryptographyComponent from "../../components/CryptographyComponent";
 import DotEnvComponent from "../../components/DotEnvComponents";
 
@@ -12,21 +13,26 @@ export default class UserService {
         this.passwordKey = DotEnvComponent.API_PASSWORD_KEY;
     }
 
-    public async login(email: string, password: string): Promise<boolean> {
+    public async login(email: string, password: string): Promise<any> {
         const user = await this.findByEmail(email);
 
         if (user) {
-            return (password === CryptographyComponent.decrypt(user.password, this.passwordKey));
+            if (password === CryptographyComponent.decrypt(user.password, this.passwordKey)) {
+                return {
+                    uuid: user._id,
+                    token: JWtComponent.generateToken(user)
+                };
+            }
         }
 
-        return false;
+        return undefined;
     }
 
     public async create(user: User): Promise<User> {
         if (user.rules === undefined) {
             user.rules = ["READ", "CREATE", "UPDATE"];
         }
-        
+
         user.password = CryptographyComponent.encrypt(user.password, this.passwordKey);
 
         const uuid = await this.repository.create(user);

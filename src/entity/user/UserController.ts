@@ -18,9 +18,9 @@ export default class UserController {
             ParameterValidatorComponent.validateParameters({ email, password }, requiredParameters);
 
             const result = await service.login(email, password);
-            if (result) {
-                logger.info("/user. login method responded successfully");
-                return response.status(202).json("User logged in successfully");
+            if (result !== undefined) {
+                logger.info("/user. login method responded successfully", {email});
+                return response.status(202).json(result);
             }
 
             throw new Error("User not found or incorrect password");

@@ -1,11 +1,58 @@
 _type: export
 __export_format: 4
-__export_date: 2022-11-14T00:05:11.966Z
+__export_date: 2022-11-14T15:15:06.512Z
 __export_source: insomnia.desktop.app:v2022.6.0
 resources:
+  - _id: req_b3187922cc1a400d87cb5b278d25de79
+    parentId: fld_341d8973601d44d19336d05cdefdfaea
+    modified: 1668438683170
+    created: 1668430049681
+    url: "{{ _.dev }}/user/login"
+    name: login
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "b.logandi@mail.com",
+        	"password": "123456"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1668430049681
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_341d8973601d44d19336d05cdefdfaea
+    parentId: wrk_a7183d01c3a54e73a0ea98a980b19956
+    modified: 1668377072657
+    created: 1668377072657
+    name: User
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1668377072657
+    _type: request_group
+  - _id: wrk_a7183d01c3a54e73a0ea98a980b19956
+    parentId: null
+    modified: 1668376994992
+    created: 1668376994992
+    name: backend-js
+    description: ""
+    scope: collection
+    _type: workspace
   - _id: req_16813ec01aac406987d54bc771b84b37
     parentId: fld_341d8973601d44d19336d05cdefdfaea
-    modified: 1668383772536
+    modified: 1668438671853
     created: 1668377345966
     url: "{{ _.dev }}/user"
     name: create
@@ -33,27 +80,9 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: fld_341d8973601d44d19336d05cdefdfaea
-    parentId: wrk_a7183d01c3a54e73a0ea98a980b19956
-    modified: 1668377072657
-    created: 1668377072657
-    name: User
-    description: ""
-    environment: {}
-    environmentPropertyOrder: null
-    metaSortKey: -1668377072657
-    _type: request_group
-  - _id: wrk_a7183d01c3a54e73a0ea98a980b19956
-    parentId: null
-    modified: 1668376994992
-    created: 1668376994992
-    name: backend-js
-    description: ""
-    scope: collection
-    _type: workspace
   - _id: req_bd797afbea414b809690d8a5e0597828
     parentId: fld_341d8973601d44d19336d05cdefdfaea
-    modified: 1668377139376
+    modified: 1668438691370
     created: 1668377077161
     url: "{{ _.dev }}/user"
     name: getAll
@@ -62,7 +91,9 @@ resources:
     body: {}
     parameters: []
     headers: []
-    authentication: {}
+    authentication:
+      type: bearer
+      token: ""
     metaSortKey: -1668377077161
     isPrivate: false
     settingStoreCookies: true
@@ -74,7 +105,7 @@ resources:
     _type: request
   - _id: req_f6c8ab30889947f0a74ed156a369fdc3
     parentId: fld_341d8973601d44d19336d05cdefdfaea
-    modified: 1668378287472
+    modified: 1668438693354
     created: 1668378029724
     url: "{{ _.dev }}/user/uuid"
     name: getOne
@@ -83,7 +114,9 @@ resources:
     body: {}
     parameters: []
     headers: []
-    authentication: {}
+    authentication:
+      type: bearer
+      token: ""
     metaSortKey: -1668377077111
     isPrivate: false
     settingStoreCookies: true
@@ -95,7 +128,7 @@ resources:
     _type: request
   - _id: req_79c54fb7273f41979fa59fa3c49ffef4
     parentId: fld_341d8973601d44d19336d05cdefdfaea
-    modified: 1668378932655
+    modified: 1668438695412
     created: 1668378173162
     url: "{{ _.dev }}/user/uuid"
     name: delete
@@ -104,7 +137,8 @@ resources:
     body: {}
     parameters: []
     headers: []
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1668377077061
     isPrivate: false
     settingStoreCookies: true
@@ -116,7 +150,7 @@ resources:
     _type: request
   - _id: req_336e8565a7e840a090e60a59e2054e02
     parentId: fld_341d8973601d44d19336d05cdefdfaea
-    modified: 1668378657341
+    modified: 1668438697507
     created: 1668378332847
     url: "{{ _.dev }}/user/uuid"
     name: updateName
@@ -132,7 +166,8 @@ resources:
     headers:
       - name: Content-Type
         value: application/json
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1668377077011
     isPrivate: false
     settingStoreCookies: true
@@ -144,7 +179,7 @@ resources:
     _type: request
   - _id: req_fb58da1d549d4afb8904da8f07c59519
     parentId: fld_341d8973601d44d19336d05cdefdfaea
-    modified: 1668378656670
+    modified: 1668438708745
     created: 1668378429239
     url: "{{ _.dev }}/user/addRule/uuid"
     name: addRule
@@ -160,7 +195,8 @@ resources:
     headers:
       - name: Content-Type
         value: application/json
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1666891561574.5
     isPrivate: false
     settingStoreCookies: true
@@ -172,7 +208,7 @@ resources:
     _type: request
   - _id: req_68c9e27a80af4ad4b116c3a857e6f1a8
     parentId: fld_341d8973601d44d19336d05cdefdfaea
-    modified: 1668378657993
+    modified: 1668438710843
     created: 1668378443943
     url: "{{ _.dev }}/user/removeRule/uuid"
     name: removeRule
@@ -188,7 +224,8 @@ resources:
     headers:
       - name: Content-Type
         value: application/json
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1666148803856.25
     isPrivate: false
     settingStoreCookies: true
@@ -200,7 +237,7 @@ resources:
     _type: request
   - _id: req_26e29c05edd449f087ab5b6c62ede86b
     parentId: fld_056382b4d1e54433bc973885311f3e91
-    modified: 1668382822804
+    modified: 1668438730648
     created: 1668378921825
     url: "{{ _.dev }}/channel"
     name: create
@@ -218,7 +255,8 @@ resources:
     headers:
       - name: Content-Type
         value: application/json
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1668377345966
     isPrivate: false
     settingStoreCookies: true
@@ -240,7 +278,7 @@ resources:
     _type: request_group
   - _id: req_cfd25b63782c4ff384eeaeb89ed9af97
     parentId: fld_056382b4d1e54433bc973885311f3e91
-    modified: 1668379198212
+    modified: 1668438771871
     created: 1668378921819
     url: "{{ _.dev }}/channel"
     name: getAll
@@ -249,7 +287,8 @@ resources:
     body: {}
     parameters: []
     headers: []
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1668377077161
     isPrivate: false
     settingStoreCookies: true
@@ -282,7 +321,7 @@ resources:
     _type: request
   - _id: req_b5c8548df665419b93dd809d3a9a2de8
     parentId: fld_056382b4d1e54433bc973885311f3e91
-    modified: 1668379227069
+    modified: 1668438778061
     created: 1668378921832
     url: "{{ _.dev }}/channel/uuid"
     name: delete
@@ -291,7 +330,8 @@ resources:
     body: {}
     parameters: []
     headers: []
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1668377077061
     isPrivate: false
     settingStoreCookies: true
@@ -303,7 +343,7 @@ resources:
     _type: request
   - _id: req_15aaf92326c040efa5bb0779db56a45a
     parentId: fld_056382b4d1e54433bc973885311f3e91
-    modified: 1668382824908
+    modified: 1668438781350
     created: 1668378921835
     url: "{{ _.dev }}/channel/updateName/uuid"
     name: updateName
@@ -319,7 +359,8 @@ resources:
     headers:
       - name: Content-Type
         value: application/json
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1668377077011
     isPrivate: false
     settingStoreCookies: true
@@ -331,7 +372,7 @@ resources:
     _type: request
   - _id: req_5e829faaeb2145278ace64b5c6bfd13f
     parentId: fld_056382b4d1e54433bc973885311f3e91
-    modified: 1668382825328
+    modified: 1668438782837
     created: 1668379292089
     url: "{{ _.dev }}/channel/updateAbout/uuid"
     name: updateAbout
@@ -347,7 +388,8 @@ resources:
     headers:
       - name: Content-Type
         value: application/json
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1667634319292.75
     isPrivate: false
     settingStoreCookies: true
@@ -359,7 +401,7 @@ resources:
     _type: request
   - _id: req_3512ea3c8dbb4a90a6852657999cb632
     parentId: fld_056382b4d1e54433bc973885311f3e91
-    modified: 1668382807840
+    modified: 1668438784539
     created: 1668382757704
     url: "{{ _.dev }}/channel/addSub/uuid"
     name: incrementSubs
@@ -368,7 +410,8 @@ resources:
     body: {}
     parameters: []
     headers: []
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1667262940433.625
     isPrivate: false
     settingStoreCookies: true
@@ -380,7 +423,7 @@ resources:
     _type: request
   - _id: req_708c957090794704a91c06bcbded05e8
     parentId: fld_056382b4d1e54433bc973885311f3e91
-    modified: 1668382812865
+    modified: 1668438786370
     created: 1668382778038
     url: "{{ _.dev }}/channel/removeSub/uuid"
     name: decrementSubs
@@ -389,7 +432,8 @@ resources:
     body: {}
     parameters: []
     headers: []
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1667077251004.0625
     isPrivate: false
     settingStoreCookies: true
@@ -401,7 +445,7 @@ resources:
     _type: request
   - _id: req_2e3ffad63fbf4d0c9fbdefdb511e20bc
     parentId: fld_ba70f247660241f6a1093db6bf870ddf
-    modified: 1668383299080
+    modified: 1668438822184
     created: 1668382913183
     url: "{{ _.dev }}/watch"
     name: create
@@ -419,7 +463,8 @@ resources:
     headers:
       - name: Content-Type
         value: application/json
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1668377345966
     isPrivate: false
     settingStoreCookies: true
@@ -441,7 +486,7 @@ resources:
     _type: request_group
   - _id: req_61a20e4e46c14cc6aae253eef3309902
     parentId: fld_ba70f247660241f6a1093db6bf870ddf
-    modified: 1668383020839
+    modified: 1668438825441
     created: 1668382913176
     url: "{{ _.dev }}/watch"
     name: getAll
@@ -450,7 +495,8 @@ resources:
     body: {}
     parameters: []
     headers: []
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1668377077161
     isPrivate: false
     settingStoreCookies: true
@@ -462,7 +508,7 @@ resources:
     _type: request
   - _id: req_7104f4a0ad41423db48691c6b2b1623c
     parentId: fld_ba70f247660241f6a1093db6bf870ddf
-    modified: 1668383310352
+    modified: 1668438866116
     created: 1668382913186
     url: "{{ _.dev }}/watch/uuid"
     name: getOne
@@ -483,7 +529,7 @@ resources:
     _type: request
   - _id: req_7dd64aa6e5dc436fb2fbd96bdf5dbae8
     parentId: fld_ba70f247660241f6a1093db6bf870ddf
-    modified: 1668383315753
+    modified: 1668438834827
     created: 1668382913189
     url: "{{ _.dev }}/watch/uuid"
     name: delete
@@ -492,7 +538,8 @@ resources:
     body: {}
     parameters: []
     headers: []
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1668377077061
     isPrivate: false
     settingStoreCookies: true
@@ -504,7 +551,7 @@ resources:
     _type: request
   - _id: req_7f3e7a3d84c54b16a12609fb4d8f313c
     parentId: fld_ba70f247660241f6a1093db6bf870ddf
-    modified: 1668383332277
+    modified: 1668438874671
     created: 1668382913191
     url: "{{ _.dev }}/watch/updateName/uuid"
     name: updateName
@@ -520,7 +567,8 @@ resources:
     headers:
       - name: Content-Type
         value: application/json
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1668377077011
     isPrivate: false
     settingStoreCookies: true
@@ -532,7 +580,7 @@ resources:
     _type: request
   - _id: req_16e4f4c7413e4d0ca72507872a778664
     parentId: fld_ba70f247660241f6a1093db6bf870ddf
-    modified: 1668383354192
+    modified: 1668438875028
     created: 1668382913194
     url: "{{ _.dev }}/watch/updateDesc/uuid"
     name: updateDescription
@@ -548,7 +596,8 @@ resources:
     headers:
       - name: Content-Type
         value: application/json
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1667634319292.75
     isPrivate: false
     settingStoreCookies: true
@@ -560,7 +609,7 @@ resources:
     _type: request
   - _id: req_ea63e593063040dca4b768416e8c7c3a
     parentId: fld_ba70f247660241f6a1093db6bf870ddf
-    modified: 1668383367761
+    modified: 1668438847218
     created: 1668382913196
     url: "{{ _.dev }}/watch/addLike/uuid"
     name: incrementLikes
@@ -569,7 +618,8 @@ resources:
     body: {}
     parameters: []
     headers: []
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1667262940433.625
     isPrivate: false
     settingStoreCookies: true
@@ -581,7 +631,7 @@ resources:
     _type: request
   - _id: req_a9a8c99e61844f32ac0570d113a73577
     parentId: fld_ba70f247660241f6a1093db6bf870ddf
-    modified: 1668383483237
+    modified: 1668438849988
     created: 1668383455889
     url: "{{ _.dev }}/watch/addView/uuid"
     name: incrementViews
@@ -590,7 +640,8 @@ resources:
     body: {}
     parameters: []
     headers: []
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1667216518076.2344
     isPrivate: false
     settingStoreCookies: true
@@ -602,7 +653,7 @@ resources:
     _type: request
   - _id: req_4438f22660ab42dc89d51a1c986b1211
     parentId: fld_ba70f247660241f6a1093db6bf870ddf
-    modified: 1668383379040
+    modified: 1668438853217
     created: 1668383115426
     url: "{{ _.dev }}/watch/removeLike/uuid"
     name: decrementLikes
@@ -611,7 +662,8 @@ resources:
     body: {}
     parameters: []
     headers: []
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1667170095718.8438
     isPrivate: false
     settingStoreCookies: true
@@ -623,7 +675,7 @@ resources:
     _type: request
   - _id: req_d5d0181d3e6341f993b3108c5e9e62fc
     parentId: fld_ba70f247660241f6a1093db6bf870ddf
-    modified: 1668383373312
+    modified: 1668438854990
     created: 1668383126632
     url: "{{ _.dev }}/watch/addDislike/uuid"
     name: incrementDislikes
@@ -632,7 +684,8 @@ resources:
     body: {}
     parameters: []
     headers: []
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1667170095668.8438
     isPrivate: false
     settingStoreCookies: true
@@ -644,7 +697,7 @@ resources:
     _type: request
   - _id: req_d39edd33faba41189691bc9da4fec942
     parentId: fld_ba70f247660241f6a1093db6bf870ddf
-    modified: 1668383383936
+    modified: 1668438856652
     created: 1668383148007
     url: "{{ _.dev }}/watch/removeDislike/uuid"
     name: decrementDislikes
@@ -653,7 +706,8 @@ resources:
     body: {}
     parameters: []
     headers: []
-    authentication: {}
+    authentication:
+      type: bearer
     metaSortKey: -1667123673336.4531
     isPrivate: false
     settingStoreCookies: true
