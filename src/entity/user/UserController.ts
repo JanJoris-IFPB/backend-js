@@ -23,7 +23,7 @@ export default class UserController {
             logger.info("/user. Post method responded successfully", result);
             return response.status(201).json(result);
         } catch (error) {
-            logger.error("/user. Post method threw an error", error.message);
+            logger.warn("/user. Post method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -36,7 +36,7 @@ export default class UserController {
             logger.info("/user. Get method responded successfully", result ? result[0] : result);
             return response.status(200).json(result);
         } catch (error) {
-            logger.error("/user. Get method threw an error", error.message);
+            logger.warn("/user. Get method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -52,7 +52,7 @@ export default class UserController {
             logger.info("/user. Delete method responded successfully", { userUuid: result._id });
             return response.status(200).json("Deletado com sucesso. Uuid: " + uuid);
         } catch (error) {
-            logger.error("/user. Delete method threw an error", error.message);
+            logger.warn("/user. Delete method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -70,7 +70,7 @@ export default class UserController {
             logger.info("/user. find method responded successfully", result);
             return response.status(200).json(result);
         } catch (error) {
-            logger.error("/user. find method threw an error", error.message);
+            logger.warn("/user. find method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -93,7 +93,7 @@ export default class UserController {
             logger.info("/user. updateName method responded successfully", result);
             return response.status(200).json(result);
         } catch (error) {
-            logger.error("/user. updateName method threw an error", error.message);
+            logger.warn("/user. updateName method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -118,8 +118,8 @@ export default class UserController {
 
             throw new Error("Rule could not be added");
         } catch (error) {
-            logger.warn("/user. addRule method threw an error", error);
-            return response.status(400).json(error);
+            logger.warn("/user. addRule method threw an error", error.message);
+            return response.status(400).json(error.message);
         }
     }
 
@@ -143,8 +143,8 @@ export default class UserController {
 
             throw new Error("Rule could not be removed");
         } catch (error) {
-            logger.warn("/user. removeRule method threw an error", error);
-            return response.status(400).json(error);
+            logger.warn("/user. removeRule method threw an error", error.message);
+            return response.status(400).json(error.message);
         }
     }
 

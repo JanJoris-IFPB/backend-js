@@ -23,7 +23,7 @@ export default class ChannelController {
             logger.info("/channel. Post method responded successfully", result);
             return response.status(201).json(result);
         } catch (error) {
-            logger.error("/channel. Post method threw an error", error.message);
+            logger.warn("/channel. Post method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -36,7 +36,7 @@ export default class ChannelController {
             logger.info("/channel. Get method responded successfully", result ? result[0] : result);
             return response.status(200).json(result);
         } catch (error) {
-            logger.error("/channel. Get method threw an error", error.message);
+            logger.warn("/channel. Get method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -52,7 +52,7 @@ export default class ChannelController {
             logger.info("/channel. Delete method responded successfully", { channelUuid: result._id });
             return response.status(200).json("Deletado com sucesso. Uuid: " + uuid);
         } catch (error) {
-            logger.error("/channel. Delete method threw an error", error.message);
+            logger.warn("/channel. Delete method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -70,7 +70,7 @@ export default class ChannelController {
             logger.info("/channel. find method responded successfully", result);
             return response.status(200).json(result);
         } catch (error) {
-            logger.error("/channel. find method threw an error", error.message);
+            logger.warn("/channel. find method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -93,7 +93,7 @@ export default class ChannelController {
             logger.info("/channel. updateName method responded successfully", result);
             return response.status(200).json(result);
         } catch (error) {
-            logger.error("/channel. updateName method threw an error", error.message);
+            logger.warn("/channel. updateName method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -116,7 +116,7 @@ export default class ChannelController {
             logger.info("/channel. updateAbout method responded successfully", result);
             return response.status(200).json(result);
         } catch (error) {
-            logger.error("/channel. updateAbout method threw an error", error.message);
+            logger.warn("/channel. updateAbout method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -134,7 +134,7 @@ export default class ChannelController {
             logger.info("/channel. incrementSubs method responded successfully", result);
             return response.status(200).json(result);
         } catch (error) {
-            logger.error("/channel. incrementSubs method threw an error", error.message);
+            logger.warn("/channel. incrementSubs method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -152,7 +152,7 @@ export default class ChannelController {
             logger.info("/channel. decrementSubs method responded successfully", result);
             return response.status(200).json(result);
         } catch (error) {
-            logger.error("/channel. decrementSubs method threw an error", error.message);
+            logger.warn("/channel. decrementSubs method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }

@@ -23,7 +23,7 @@ export default class VideoController {
             logger.info("/video. Post method responded successfully", result);
             return response.status(201).json(result);
         } catch (error) {
-            logger.error("/video. Post method threw an error", error.message);
+            logger.warn("/video. Post method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -36,7 +36,7 @@ export default class VideoController {
             logger.info("/video. Get method responded successfully", result ? result[0] : result);
             return response.status(200).json(result);
         } catch (error) {
-            logger.error("/video. Get method threw an error", error.message);
+            logger.warn("/video. Get method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -52,7 +52,7 @@ export default class VideoController {
             logger.info("/video. Delete method responded successfully", { videoUuid: result._id });
             return response.status(200).json("Deletado com sucesso. Uuid: " + uuid);
         } catch (error) {
-            logger.error("/video. Delete method threw an error", error.message);
+            logger.warn("/video. Delete method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -70,7 +70,7 @@ export default class VideoController {
             logger.info("/video. find method responded successfully", result);
             return response.status(200).json(result);
         } catch (error) {
-            logger.error("/video. find method threw an error", error.message);
+            logger.warn("/video. find method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -93,7 +93,7 @@ export default class VideoController {
             logger.info("/video. updateName method responded successfully", result);
             return response.status(200).json(result);
         } catch (error) {
-            logger.error("/video. updateName method threw an error", error.message);
+            logger.warn("/video. updateName method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -116,7 +116,7 @@ export default class VideoController {
             logger.info("/video. updateDescription method responded successfully", result);
             return response.status(200).json(result);
         } catch (error) {
-            logger.error("/video. updateDescription method threw an error", error.message);
+            logger.warn("/video. updateDescription method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -134,7 +134,7 @@ export default class VideoController {
             logger.info("/video. incrementViews method responded successfully", result);
             return response.status(200).json(result);
         } catch (error) {
-            logger.error("/video. incrementViews method threw an error", error.message);
+            logger.warn("/video. incrementViews method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -152,7 +152,7 @@ export default class VideoController {
             logger.info("/video. incrementLikes method responded successfully", result);
             return response.status(200).json(result);
         } catch (error) {
-            logger.error("/video. incrementLikes method threw an error", error.message);
+            logger.warn("/video. incrementLikes method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -170,7 +170,7 @@ export default class VideoController {
             logger.info("/video. decrementLikes method responded successfully", result);
             return response.status(200).json(result);
         } catch (error) {
-            logger.error("/video. decrementLikes method threw an error", error.message);
+            logger.warn("/video. decrementLikes method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -188,7 +188,7 @@ export default class VideoController {
             logger.info("/video. incrementDislikes method responded successfully", result);
             return response.status(200).json(result);
         } catch (error) {
-            logger.error("/video. incrementDislikes method threw an error", error.message);
+            logger.warn("/video. incrementDislikes method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
@@ -206,7 +206,7 @@ export default class VideoController {
             logger.info("/video. decrementDislikes method responded successfully", result);
             return response.status(200).json(result);
         } catch (error) {
-            logger.error("/video. decrementDislikes method threw an error", error.message);
+            logger.warn("/video. decrementDislikes method threw an error", error.message);
             return response.status(400).json(error.message);
         }
     }
