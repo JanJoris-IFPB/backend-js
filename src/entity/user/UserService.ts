@@ -1,21 +1,36 @@
 import User from "../../types/User";
 import UserRepository from "./UserRepository";
+import CryptographyComponent from "../../components/CryptographyComponent";
+import DotEnvComponent from "../../components/DotEnvComponents";
 
 export default class UserService {
-    repository: UserRepository;
+    private repository: UserRepository;
+    private passwordKey: string;
 
     constructor() {
         this.repository = new UserRepository();
+        this.passwordKey = DotEnvComponent.API_PASSWORD_KEY;
+    }
+
+    public async login(email: string, password: string): Promise<boolean> {
+        const user = await this.findByEmail(email);
+
+        if (user) {
+            return (password === CryptographyComponent.decrypt(user.password, this.passwordKey));
+        }
+
+        return false;
     }
 
     public async create(user: User): Promise<User> {
         if (user.rules === undefined) {
             user.rules = ["READ", "CREATE", "UPDATE"];
         }
+        
+        user.password = CryptographyComponent.encrypt(user.password, this.passwordKey);
 
         const uuid = await this.repository.create(user);
         user._id = uuid;
-
         return uuid ? user : undefined;
     }
 

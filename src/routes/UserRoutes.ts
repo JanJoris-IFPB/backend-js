@@ -6,6 +6,7 @@ export default class UserRoutes extends RouteTemplate {
         super();
         const controller = new UserController();
 
+        this.routes.post("/login", controller.login);
         this.routes.post("/", controller.create);
         this.routes.get("/", controller.read);
         this.routes.delete("/:uuid", controller.delete);

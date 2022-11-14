@@ -10,6 +10,26 @@ const logger = new LoggerComponent("UserController");
 
 export default class UserController {
 
+    public async login(request: Request, response: Response): Promise<Response> {
+        try {
+            const { email, password } = request.body;
+
+            const requiredParameters = ["email", "password"];
+            ParameterValidatorComponent.validateParameters({ email, password }, requiredParameters);
+
+            const result = await service.login(email, password);
+            if (result) {
+                logger.info("/user. login method responded successfully");
+                return response.status(202).json("User logged in successfully");
+            }
+
+            throw new Error("User not found or incorrect password");
+        } catch (error) {
+            logger.warn("/user. login method threw an error", error.message);
+            return response.status(401).json(error.message);
+        }
+    }
+
     public async create(request: Request, response: Response): Promise<Response> {
         try {
             const user: User = request.body;
