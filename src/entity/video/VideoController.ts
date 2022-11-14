@@ -121,6 +121,24 @@ export default class VideoController {
         }
     }
 
+    public async incrementViews(request: Request, response: Response): Promise<Response> {
+        try {
+            const { uuid } = request.params;
+
+            const requiredParameters = ["uuid"];
+            ParameterValidatorComponent.validateParameters({ uuid }, requiredParameters);
+
+            const retrievedVideo: Video = await service.incrementViews(uuid)
+            const result = new VideoDTO(retrievedVideo);
+
+            logger.info("/video. incrementViews method responded successfully", result);
+            return response.status(200).json(result);
+        } catch (error) {
+            logger.error("/video. incrementViews method threw an error", error.message);
+            return response.status(400).json(error.message);
+        }
+    }
+
     public async incrementLikes(request: Request, response: Response): Promise<Response> {
         try {
             const { uuid } = request.params;
