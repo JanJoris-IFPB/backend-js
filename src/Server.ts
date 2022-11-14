@@ -1,6 +1,6 @@
 import { Express } from 'express';
 import DatabaseConfig from "./config/DatabaseConfig";
-import DotenvComponent from "./components/DotEnvComponents";
+import DotEnvComponent from "./components/DotEnvComponents";
 import AppConfig from "./config/AppConfig";
 import os from "os";
 import LoggerComponent from './components/LoggerComponent';
@@ -15,7 +15,7 @@ class Server {
 
     public start(): void {
         DatabaseConfig.connect();
-        this.server.listen(DotenvComponent.API_PORT, Server.logSystemInfo);
+        this.server.listen(DotEnvComponent.PORT, Server.logSystemInfo);
     }
 
     private static logSystemInfo(): void {
@@ -27,7 +27,7 @@ class Server {
         const mem = os.totalmem();
         const cpus = os.cpus();
 
-        logger.info(`SERVER RUNNING ON PORT: ${DotenvComponent.API_PORT}`);
+        logger.info(`SERVER RUNNING ON PORT: ${DotEnvComponent.PORT}`);
         logger.info(`OS: ${type} ${plataform} ${arch}`);
         logger.info(`RAM: ${Math.floor(mem * (10 ** -9))} GB`);
         logger.info(`CPU: ${cpus[0].model}`);

@@ -1,4 +1,4 @@
-import { Format } from "Logform";
+import { Format } from "logform";
 import winston, { Logger } from "winston";
 import DotenvComponent from "../components/DotEnvComponents";
 
